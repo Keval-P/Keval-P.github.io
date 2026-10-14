@@ -109,14 +109,17 @@
     .skills-title { margin: 18px 0 0; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: clamp(35px, 4.4vw, 55px); line-height: 1.08; letter-spacing: -.065em; }
     .skills-subtitle { max-width: 390px; margin: 0 0 4px; color: var(--soft-ink); font-size: 14px; line-height: 1.75; }
     .skills-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-    .skill-card { position: relative; background: rgba(255,255,255,.65); border: 1px solid var(--line); border-radius: 18px; padding: 28px 27px 30px; min-height: 270px; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .skill-card { position: relative; background: rgba(255,255,255,.65); border: 1px solid var(--line); border-radius: 18px; padding: 28px 27px 30px; min-height: 225px; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
     .skill-card:hover { border-color: #b7c4f5; transform: translateY(-3px); box-shadow: 0 18px 30px -28px rgba(30,54,120,.45); }
-    .skill-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 34px; }
+    .skill-card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; }
     .skill-card-num { font-family: "Space Grotesk",sans-serif; color: #8d9ab0; font-size: 12px; font-weight: 600; }
-    .skill-card-mark { width: 26px; height: 26px; border: 1px solid #d5ddf7; background: #f0f3ff; border-radius: 8px; display: grid; place-items: center; color: var(--accent); font-size: 15px; font-family: "Space Grotesk",sans-serif; font-weight: 600; }
+    .skill-card-mark { width: 36px; height: 36px; border: 1px solid #d5ddf7; background: #f0f3ff; border-radius: 8px; display: grid; place-items: center; color: var(--accent); font-size: 18px; font-family: "Space Grotesk",sans-serif; font-weight: 600; }
     .skill-card h3 { font-family: "Space Grotesk",sans-serif; font-size: 19px; line-height: 1.3; font-weight: 600; letter-spacing: -.035em; margin: 0 0 20px; }
     .skill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; }
     .skill-list li { border: 1px solid #e2e7f0; background: #f8f9fc; color: #43516a; border-radius: 7px; padding: 7px 10px; font-size: 12px; font-weight: 600; line-height: 1.3; }
+    .skill-card:last-child { grid-column: 1 / -1; min-height: 185px; }
+    .skill-card--pending { background: rgba(239,242,248,.68); border-style: dashed; }
+    .skill-pending { margin: 0; font-size: 13px; line-height: 1.65; color: var(--muted); }
     .header-actions { display: flex; align-items: center; gap: 32px; }
     .nav-link.secondary { color: var(--soft-ink); }
     .nav-link.secondary:hover { color: var(--accent); }
@@ -130,6 +133,7 @@
       .skills-title { margin-top: 15px; font-size: 40px; }
       .skills-subtitle { margin-top: 14px; }
       .skills-grid { grid-template-columns: 1fr; gap: 12px; }
+      .skill-card:last-child { grid-column: auto; min-height: 0; }
       .skill-card { padding: 23px 22px 25px; }
       .skill-card-top { margin-bottom: 20px; }
       .skill-card h3 { font-size: 18px; margin-bottom: 17px; }
@@ -234,51 +238,74 @@
             <div class="section-label"><span>02 /</span> Technical expertise</div>
             <h2 class="skills-title" id="skills-title">Skills &amp; technologies<span style="color:var(--accent)">.</span></h2>
           </div>
-          <p class="skills-subtitle">The technologies I use to build, optimize, and deploy practical AI systems — from models to production infrastructure.</p>
+          <p class="skills-subtitle">A structured view of the technologies behind my AI engineering work — from model development and accelerated inference to deployment.</p>
         </div>
 
         <div class="skills-grid">
           <article class="skill-card">
-            <div class="skill-card-top"><span class="skill-card-num">01 / FOUNDATIONS</span><span class="skill-card-mark" aria-hidden="true">⌘</span></div>
-            <h3>Languages &amp; ML</h3>
-            <ul class="skill-list">
-              <li>Python</li><li>C++</li><li>PyTorch</li><li>OpenCV</li><li>ONNX</li><li>ONNX Runtime</li>
-            </ul>
+            <div class="skill-card-top"><span class="skill-card-num">01 / 13</span><span class="skill-card-mark" aria-hidden="true">📁</span></div>
+            <h3>Programming Languages</h3>
+            <ul class="skill-list"><li>Python</li><li>C++</li><li>Bash / Shell</li></ul>
           </article>
           <article class="skill-card">
-            <div class="skill-card-top"><span class="skill-card-num">02 / ACCELERATION</span><span class="skill-card-mark" aria-hidden="true">↗</span></div>
-            <h3>GPU Inference &amp; Optimization</h3>
-            <ul class="skill-list">
-              <li>CUDA</li><li>PyCUDA</li><li>TensorRT</li><li>TensorRT-LLM</li><li>DeepStream</li><li>Triton Inference Server</li><li>CV-CUDA</li><li>cuBLAS / cuDNN</li>
-            </ul>
+            <div class="skill-card-top"><span class="skill-card-num">02 / 13</span><span class="skill-card-mark" aria-hidden="true">🤖</span></div>
+            <h3>Deep Learning Frameworks</h3>
+            <ul class="skill-list"><li>PyTorch</li><li>Hugging Face Transformers</li><li>Ultralytics</li><li>PyTorch DDP</li></ul>
           </article>
           <article class="skill-card">
-            <div class="skill-card-top"><span class="skill-card-num">03 / PERCEPTION</span><span class="skill-card-mark" aria-hidden="true">◎</span></div>
-            <h3>Computer Vision &amp; Video</h3>
-            <ul class="skill-list">
-              <li>Object Detection</li><li>Segmentation</li><li>Multi-object Tracking</li><li>Face Recognition</li><li>OCR / ANPR</li><li>Video Analytics</li><li>RTSP / ONVIF</li><li>GStreamer</li>
-            </ul>
+            <div class="skill-card-top"><span class="skill-card-num">03 / 13</span><span class="skill-card-mark" aria-hidden="true">⚡</span></div>
+            <h3>Model Optimization &amp; Inference</h3>
+            <ul class="skill-list"><li>CUDA / PyCUDA</li><li>TensorRT</li><li>TensorRT-LLM</li><li>Triton Inference Server</li><li>ONNX / ONNX Runtime</li><li>CV-CUDA</li><li>cuBLAS / cuDNN</li><li>Quantization</li></ul>
           </article>
           <article class="skill-card">
-            <div class="skill-card-top"><span class="skill-card-num">04 / INTELLIGENCE</span><span class="skill-card-mark" aria-hidden="true">✳</span></div>
-            <h3>Generative AI &amp; LLMs</h3>
-            <ul class="skill-list">
-              <li>LLMs / VLMs</li><li>Hugging Face</li><li>vLLM</li><li>RAG</li><li>LangChain</li><li>LangGraph</li><li>LoRA / 4-bit Fine-tuning</li>
-            </ul>
+            <div class="skill-card-top"><span class="skill-card-num">04 / 13</span><span class="skill-card-mark" aria-hidden="true">👁️</span></div>
+            <h3>Computer Vision &amp; Media</h3>
+            <ul class="skill-list"><li>OpenCV</li><li>DeepStream</li><li>GStreamer</li><li>FFmpeg</li><li>RTSP / ONVIF</li><li>Object Detection</li><li>Segmentation</li><li>Multi-object Tracking</li><li>Face Recognition</li><li>OCR / ANPR</li></ul>
           </article>
           <article class="skill-card">
-            <div class="skill-card-top"><span class="skill-card-num">05 / ARCHITECTURE</span><span class="skill-card-mark" aria-hidden="true">◇</span></div>
-            <h3>Backend &amp; Distributed Systems</h3>
-            <ul class="skill-list">
-              <li>FastAPI</li><li>Docker</li><li>RabbitMQ</li><li>Qdrant</li><li>Microservices</li><li>Multithreading</li><li>Multiprocessing</li>
-            </ul>
+            <div class="skill-card-top"><span class="skill-card-num">05 / 13</span><span class="skill-card-mark" aria-hidden="true">💬</span></div>
+            <h3>NLP &amp; LLM</h3>
+            <ul class="skill-list"><li>LLMs / VLMs</li><li>vLLM</li><li>RAG</li><li>LangChain</li><li>LangGraph</li><li>LoRA / 4-bit Fine-tuning</li><li>Embeddings &amp; Retrieval</li></ul>
           </article>
           <article class="skill-card">
-            <div class="skill-card-top"><span class="skill-card-num">06 / PRODUCTION</span><span class="skill-card-mark" aria-hidden="true">▣</span></div>
-            <h3>Edge AI &amp; MLOps</h3>
-            <ul class="skill-list">
-              <li>NVIDIA Jetson / RTX</li><li>Axelera Metis</li><li>MLflow</li><li>Weights &amp; Biases</li><li>PyTorch DDP</li><li>Edge Deployment</li>
-            </ul>
+            <div class="skill-card-top"><span class="skill-card-num">06 / 13</span><span class="skill-card-mark" aria-hidden="true">📊</span></div>
+            <h3>Data Science &amp; Numerical Computing</h3>
+            <ul class="skill-list"><li>NumPy</li><li>Pandas</li><li>PyTorch Tensor Operations</li><li>Vector Similarity</li></ul>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card-top"><span class="skill-card-num">07 / 13</span><span class="skill-card-mark" aria-hidden="true">🌐</span></div>
+            <h3>Python Frameworks</h3>
+            <ul class="skill-list"><li>FastAPI</li><li>LangChain</li><li>LangGraph</li><li>AsyncIO</li><li>Multiprocessing</li><li>Multithreading</li></ul>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card-top"><span class="skill-card-num">08 / 13</span><span class="skill-card-mark" aria-hidden="true">🗄️</span></div>
+            <h3>Databases</h3>
+            <ul class="skill-list"><li>Qdrant</li><li>MongoDB</li><li>Vector Databases</li><li>Embedding Search</li></ul>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card-top"><span class="skill-card-num">09 / 13</span><span class="skill-card-mark" aria-hidden="true">📦</span></div>
+            <h3>Messaging</h3>
+            <ul class="skill-list"><li>RabbitMQ</li><li>AMQP</li><li>Event-driven Architecture</li></ul>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card-top"><span class="skill-card-num">10 / 13</span><span class="skill-card-mark" aria-hidden="true">🔧</span></div>
+            <h3>CI/CD &amp; Version Control</h3>
+            <ul class="skill-list"><li>Git</li><li>GitHub</li><li>GitHub Actions</li><li>CI/CD Workflows</li></ul>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card-top"><span class="skill-card-num">11 / 13</span><span class="skill-card-mark" aria-hidden="true">💻</span></div>
+            <h3>DevOps &amp; Tools</h3>
+            <ul class="skill-list"><li>Docker</li><li>Docker Compose</li><li>Linux</li><li>MLflow</li><li>Weights &amp; Biases</li><li>NVIDIA Container Toolkit</li><li>NVIDIA GPU Operator</li></ul>
+          </article>
+          <article class="skill-card skill-card--pending">
+            <div class="skill-card-top"><span class="skill-card-num">12 / 13</span><span class="skill-card-mark" aria-hidden="true">☁️</span></div>
+            <h3>Cloud Providers</h3>
+            <p class="skill-pending">Provider-specific experience to be added.</p>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card-top"><span class="skill-card-num">13 / 13</span><span class="skill-card-mark" aria-hidden="true">🖥️</span></div>
+            <h3>Hardware</h3>
+            <ul class="skill-list"><li>NVIDIA Jetson</li><li>NVIDIA RTX GPUs</li><li>Axelera Metis AIPU</li><li>Multi-GPU Systems</li><li>Intel CPU / iGPU</li><li>Edge AI Devices</li></ul>
           </article>
         </div>
       </section>
