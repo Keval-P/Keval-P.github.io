@@ -180,6 +180,140 @@
       .visual { aspect-ratio: 1.13; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+
+    /* Portfolio design refresh — editorial layout, layered depth, and polished interaction */
+    :root { --paper: #f8f9fd; --paper-2: #edf1fb; --ink: #14203b; --soft-ink: #526079; --line: #e1e7f1; --accent: #315cf5; --accent-deep: #2143c9; }
+    body { background: radial-gradient(ellipse at 85% 3%, #e9eeff 0, transparent 33%), var(--paper); }
+    .site-shell::before { width: 850px; height: 850px; right: -400px; top: -340px; background: radial-gradient(circle,rgba(85,121,255,.12),transparent 67%); }
+    .header { height: 92px; }
+    .identity-mark { border-radius: 12px; background: linear-gradient(135deg,#14203b,#3554ab); box-shadow: 0 8px 24px rgba(22,41,89,.12); }
+    .nav-link.secondary { padding: 9px 14px; border-radius: 9px; }
+    .nav-link.secondary:hover { background: #e9eeff; }
+    .hero { min-height: 665px; }
+    .hero h1 { text-wrap: balance; }
+    .hero h1 .last-name { background: linear-gradient(100deg,#315cf5 5%,#6b56df 93%); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .hero-intro { max-width: 510px; }
+    .hero-action { border-radius: 12px; box-shadow: 0 10px 24px rgba(20,32,59,.14); }
+    .hero-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; margin: 31px 0 0 14px; padding: 16px 18px; color: var(--ink); font-size: 13px; font-weight: 700; text-decoration: none; border: 1px solid #cbd5e7; border-radius: 12px; background: rgba(255,255,255,.75); transition: border-color .2s, transform .2s, background .2s; }
+    .hero-secondary:hover { transform: translateY(-2px); border-color: #95aaf8; background: #fff; }
+    .hero-proof { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 29px; }
+    .hero-proof span { border: 1px solid #dce3f1; border-radius: 999px; padding: 7px 11px; font-size: 11px; font-weight: 700; color: #55637d; background: rgba(255,255,255,.76); }
+    .visual { box-shadow: 0 28px 72px -54px rgba(26,46,122,.55); }
+    .summary { position: relative; }
+    .summary-copy { max-width: 1070px; }
+    .skills { padding-top: 100px; }
+    .skills-heading { padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+    .skills-grid { gap: 18px; }
+    .skill-card { overflow: hidden; background: rgba(255,255,255,.82); border: 1px solid #e0e6f2; border-radius: 20px; box-shadow: 0 9px 25px -25px rgba(32,49,102,.45); }
+    .skill-card::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: linear-gradient(90deg,#315cf5,#a9b6ff); opacity: 0; transition: opacity .2s; }
+    .skill-card:hover::before { opacity: 1; }
+    .skill-card:hover { border-color: #bac8f8; transform: translateY(-4px); box-shadow: 0 22px 44px -30px rgba(36,58,132,.33); }
+    .skill-card-mark { width: 39px; height: 39px; border-radius: 12px; background: #edf1ff; border-color: #e0e6ff; font-size: 19px; }
+    .skill-card h3 { font-size: 20px; letter-spacing: -.035em; }
+    .skill-list li { border-radius: 8px; background: #f4f6fb; border-color: #e7ebf3; color: #475776; transition: background .2s, border-color .2s; }
+    .skill-card:hover .skill-list li { background: #f8faff; border-color: #dce5fa; }
+    .skill-card--pending { background: #f3f5fa; }
+    @media (max-width: 760px) { .header { height: 79px; } .hero-secondary { margin-top: 12px; margin-left: 0; } .hero-proof { margin-top: 23px; } .skills { padding-top: 70px; } .skill-card h3 { font-size: 18px; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .skill-card, .hero-action, .hero-secondary { transition: none; } }
+
+    /* Portfolio 2.0 — typography, editorial contrast, and case-study visuals */
+    :root { --paper:#f8f9fc; --paper-2:#eef2fb; --ink:#101b31; --soft-ink:#53617a; --line:#dfe5ef; --accent:#315bf0; --accent-deep:#1f40c6; }
+    body { background: var(--paper); }
+    .site-shell { background: radial-gradient(ellipse 65% 19% at 80% 2%,rgba(217,227,255,.48),transparent 78%); }
+    .container { width:min(calc(100% - 112px),1260px); }
+    .header { height:90px; border-color:rgba(190,202,222,.55); }
+    .identity-mark { width:43px; height:43px; border-radius:12px; }
+    .header-actions { gap:28px; }
+    .nav-contact { background:#101b31; color:white; padding:11px 17px; border-radius:9px; }
+    .nav-contact:hover { color:white; background:var(--accent); }
+    .hero { min-height:640px; gap:clamp(38px,5vw,80px); padding-top:62px; padding-bottom:75px; }
+    .hero-copy { padding-top:0; }
+    .eyebrow { color:#3558ce; letter-spacing:.12em; font-size:11px; }
+    .eyebrow-divider { color:#b0bddd; }
+    .hero h1 { font-size:clamp(72px,8vw,124px); margin:30px 0 26px; }
+    .hero h1 .last-name { background:linear-gradient(105deg,#325cf4,#7b61d7); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .hero-title { font-weight:600; font-size:clamp(20px,2.2vw,28px); }
+    .hero-intro { max-width:510px; }
+    .hero-intro strong { color:var(--ink); font-weight:700; }
+    .hero-action { background:#14213c; }
+    .hero-secondary { background:transparent; }
+    .hero-proof span { border-color:#e0e5f1; background:#fff; }
+    .visual { min-height:445px; border:1px solid #263959; border-radius:27px; background:radial-gradient(circle at 50% 50%,rgba(51,94,176,.26),transparent 47%),linear-gradient(145deg,#101e35,#172a49 62%,#0c172b); box-shadow:0 40px 90px -55px rgba(13,31,71,.8); }
+    .visual::before { background-image:linear-gradient(to right,rgba(145,177,239,.11) 1px,transparent 1px),linear-gradient(to bottom,rgba(145,177,239,.11) 1px,transparent 1px); opacity:1; }
+    .visual-kicker { color:#c3d2f2; display:flex; align-items:center; gap:9px; }
+    .visual-index { color:#96a8c9; }
+    .live-dot,.availability-dot { width:7px; height:7px; display:inline-block; flex:none; border-radius:50%; background:#64e2ae; box-shadow:0 0 0 4px rgba(100,226,174,.13); }
+    .orbit { border-color:rgba(125,166,247,.3); }
+    .orbit-b { border-color:rgba(125,166,247,.45); }
+    .orbit-c { border-color:rgba(125,166,247,.24); }
+    .center-piece { background:linear-gradient(145deg,#7fa2ff,#416cf1 50%,#2035b0); box-shadow:0 15px 75px rgba(67,112,247,.45),inset 0 2px 16px rgba(255,255,255,.2); }
+    .float-tag { color:#dce6ff; background:rgba(28,47,80,.88); border-color:rgba(129,164,226,.35); box-shadow:0 12px 25px rgba(0,0,0,.12); }
+    .float-tag i { background:#76a0ff; }
+    .visual-stamp { color:#a9bcde; border-color:rgba(169,188,222,.25); }
+    .impact-band { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)) 1.1fr; gap:0; background:#fff; border:1px solid #e0e6f0; border-radius:20px; box-shadow:0 18px 44px -38px rgba(20,40,91,.35); overflow:hidden; margin-bottom:78px; }
+    .impact-item { min-height:123px; padding:26px 25px; display:flex; flex-direction:column; justify-content:center; gap:6px; border-right:1px solid #e8ecf3; }
+    .impact-item:last-child { border-right:0; }
+    .impact-value { font:600 33px/1 "Space Grotesk",sans-serif; letter-spacing:-.07em; }
+    .impact-plus { color:var(--accent); }
+    .impact-unit { font-size:16px; letter-spacing:-.04em; }
+    .impact-arrow { color:#8298ce; font-size:22px; margin:0 3px; }
+    .impact-label { color:#7b879c; font-size:11px; font-weight:700; letter-spacing:.025em; }
+    .impact-availability { flex-direction:row; align-items:center; gap:12px; background:#f4f7ff; color:#4b5c7d; font-size:12px; font-weight:700; }
+    .summary { padding-top:45px; padding-bottom:80px; border-top:0; }
+    .summary-copy { font-size:clamp(18px,2vw,24px); }
+    .work-section { padding-top:102px; padding-bottom:105px; }
+    .work-heading { display:flex; justify-content:space-between; align-items:end; gap:45px; margin-bottom:34px; }
+    .work-heading h2 { margin:19px 0 0; font:600 clamp(38px,4.9vw,66px)/1.07 "Space Grotesk",sans-serif; letter-spacing:-.065em; }
+    .work-heading h2 em { font-style:normal; color:var(--accent); }
+    .work-heading p { max-width:310px; margin:0 0 6px; color:var(--soft-ink); font-size:14px; line-height:1.8; }
+    .work-grid { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:17px; }
+    .work-card { display:flex; flex-direction:column; overflow:hidden; border:1px solid #dce4ef; border-radius:21px; background:#fff; transition:transform .25s,border-color .25s,box-shadow .25s; }
+    .work-card:hover { transform:translateY(-4px); border-color:#b9c8f4; box-shadow:0 22px 55px -36px rgba(25,55,125,.3); }
+    .work-card-top { display:flex; justify-content:space-between; align-items:center; padding:21px 23px 18px; }
+    .work-index { color:#8490a7; font:700 10px/1.4 "Space Grotesk",sans-serif; letter-spacing:.12em; }
+    .work-symbol { color:#5270c3; font-size:20px; }
+    .work-graphic { position:relative; height:186px; margin:0 14px; overflow:hidden; border-radius:12px; }
+    .work-graphic-safety { background:radial-gradient(circle at 60% 45%,#2d507a,#112239 72%); }
+    .work-graphic-safety::before,.work-graphic-face::before { content:""; position:absolute; inset:0; background-image:linear-gradient(to right,rgba(181,211,252,.1) 1px,transparent 1px),linear-gradient(to bottom,rgba(181,211,252,.1) 1px,transparent 1px); background-size:24px 24px; }
+    .scan-frame { width:118px; height:114px; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); border:1px solid rgba(121,209,234,.27); }
+    .scan-corner { width:18px; height:18px; position:absolute; border-color:#6ce8e1; border-style:solid; }
+    .scan-corner.tl { top:-1px; left:-1px; border-width:2px 0 0 2px; }.scan-corner.tr { top:-1px; right:-1px; border-width:2px 2px 0 0; }.scan-corner.bl { bottom:-1px; left:-1px; border-width:0 0 2px 2px; }.scan-corner.br { bottom:-1px; right:-1px; border-width:0 2px 2px 0; }
+    .scan-cross { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:#8ddbe2; font:300 28px/1 "Space Grotesk",sans-serif; }
+    .scan-label { position:absolute; bottom:12px; left:14px; font:700 9px/1 "Space Grotesk",sans-serif; letter-spacing:.13em; color:#a4c6dc; }
+    .work-graphic-gate { background:linear-gradient(145deg,#dfe9ff,#b7cafa); display:grid; place-items:center; }
+    .gate-track { position:absolute; inset:18px 25px; border:1px solid rgba(58,93,166,.28); transform:skewX(-16deg); display:flex; align-items:center; justify-content:space-around; }
+    .gate-track span { height:75%; width:1px; background:rgba(64,98,171,.24); }
+    .gate-readout { position:relative; font:700 83px/1 "Space Grotesk",sans-serif; letter-spacing:-.1em; color:#2848aa; text-shadow:0 5px 25px rgba(36,70,159,.16); }
+    .gate-readout small { font-size:17px; letter-spacing:0; margin-left:5px; }
+    .work-graphic-face { background:radial-gradient(circle at 50% 50%,#394a79,#19243e 70%); display:grid; place-items:center; }
+    .face-target { width:106px; height:120px; border:1px solid rgba(153,172,251,.35); border-radius:45% 45% 40% 40%; position:relative; }
+    .face-target span { position:absolute; width:10px; height:10px; border:2px solid #9fb3ff; border-radius:50%; }
+    .face-target span:nth-child(1){top:40%;left:22%}.face-target span:nth-child(2){top:40%;right:22%}.face-target span:nth-child(3){bottom:29%;left:46%}.face-target span:nth-child(4){bottom:12%;left:46%}
+    .face-signal { position:absolute; bottom:12px; left:14px; color:#b8c6ee; font:700 9px/1 "Space Grotesk",sans-serif; letter-spacing:.12em; }
+    .work-card-content { padding:24px 23px 25px; display:flex; flex:1; flex-direction:column; }
+    .work-card-content h3 { font:600 23px/1.22 "Space Grotesk",sans-serif; letter-spacing:-.04em; margin:0 0 13px; }
+    .work-card-content p { color:var(--soft-ink); font-size:13px; line-height:1.78; margin:0 0 23px; }
+    .work-result { display:flex; flex-direction:column; gap:5px; padding:16px 0; border-top:1px solid #e9edf4; margin-top:auto; }
+    .work-result strong { font:600 21px/1.2 "Space Grotesk",sans-serif; letter-spacing:-.04em; color:#2344ba; }
+    .work-result span { font-size:11px; color:#75849c; font-weight:600; }
+    .work-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:13px; }
+    .work-tags span { border:1px solid #e1e7f1; border-radius:6px; padding:6px 8px; background:#f7f9fd; color:#52617c; font-size:10px; font-weight:700; }
+    .skills { padding-top:105px; border-top:1px solid var(--line); }
+    .skills-heading { margin-bottom:35px; }
+    .skill-card { background:#fff; }
+    .skill-card h3 { max-width:270px; }
+    .contact-section { margin-top:40px; margin-bottom:35px; border-radius:26px; padding:62px 64px; background:radial-gradient(ellipse at 85% 20%,rgba(79,112,203,.4),transparent 50%),linear-gradient(125deg,#111f3a,#1a3158); color:#fff; display:flex; justify-content:space-between; align-items:center; gap:35px; }
+    .contact-eyebrow { font:700 11px/1.5 "Space Grotesk",sans-serif; letter-spacing:.16em; color:#a5bbff; }
+    .contact-section h2 { font:600 clamp(30px,3.8vw,53px)/1.1 "Space Grotesk",sans-serif; letter-spacing:-.06em; margin:15px 0 16px; }
+    .contact-section h2 em { font-style:normal; color:#9fb6ff; }
+    .contact-section p { color:#c2cde1; font-size:14px; line-height:1.75; max-width:530px; margin:0; }
+    .contact-button { flex:none; display:inline-flex; align-items:center; gap:26px; text-decoration:none; background:#fff; color:#16294b; padding:18px 22px; border-radius:11px; font-weight:700; font-size:13px; transition:transform .2s,background .2s; }
+    .contact-button:hover { transform:translateY(-3px); background:#e7edff; }
+    @media(max-width:1100px) { .container{width:min(calc(100% - 70px),1260px)} .impact-band{grid-template-columns:repeat(3,1fr)} .impact-availability{grid-column:1/-1;min-height:55px;border-top:1px solid #e8ecf3} .work-grid{grid-template-columns:repeat(2,minmax(0,1fr))} .work-card-featured{grid-column:1/-1} .work-card-featured .work-graphic{height:220px} }
+    @media(max-width:760px) { .container{width:calc(100% - 40px)} .header{height:78px} .header-actions{gap:11px} .nav-contact{padding:9px 11px} .nav-work{display:none} .hero{padding-top:30px;min-height:0} .hero h1{font-size:clamp(61px,13.2vw,92px)} .visual{min-height:0} .impact-band{grid-template-columns:1fr 1fr;margin-bottom:40px} .impact-item{padding:20px 18px;min-height:107px} .impact-item:nth-child(2){border-right:0} .impact-item:nth-child(3){grid-column:1/-1;border-top:1px solid #e8ecf3} .impact-availability{grid-column:1/-1} .impact-value{font-size:29px} .summary{padding-bottom:50px} .work-section{padding-top:62px;padding-bottom:67px} .work-heading{display:block} .work-heading p{margin-top:15px} .work-grid{grid-template-columns:1fr} .work-card-featured{grid-column:auto} .work-graphic{height:190px} .work-card-featured .work-graphic{height:190px} .skills{padding-top:68px} .contact-section{padding:35px 28px;display:block;border-radius:20px} .contact-button{margin-top:25px} }
+    @media(max-width:400px) { .nav-contact{font-size:11px} .impact-label{font-size:10px} .contact-section{padding:29px 22px} }
+    @media(prefers-reduced-motion:reduce) { .work-card,.contact-button{transition:none} }
+
   </style>
 </head>
 <body>
@@ -190,7 +324,9 @@
         <span class="identity-label"><strong>Keval Pandya</strong><small>AI / ML Engineer</small></span>
       </a>
       <nav class="header-actions" aria-label="Main navigation">
+        <a class="nav-link secondary nav-work" href="#work">Work</a>
         <a class="nav-link secondary" href="#skills">Skills</a>
+        <a class="nav-link nav-contact" href="mailto:kevalpandya760@gmail.com">Contact <span aria-hidden="true">↗</span></a>
       <a class="nav-link" href="https://github.com/Keval-P" target="_blank" rel="noopener noreferrer" aria-label="Visit Keval Pandya's GitHub profile">
         GitHub
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
@@ -201,18 +337,20 @@
     <main>
       <section class="hero container" aria-labelledby="hero-name">
         <div class="hero-copy">
-          <div class="eyebrow">AI engineering · systems thinking</div>
+          <div class="eyebrow">AI engineering <span class="eyebrow-divider" aria-hidden="true">/</span> Built for production</div>
           <h1 id="hero-name"><span>Keval</span><span class="last-name">Pandya.</span></h1>
           <p class="hero-title">AI/ML Engineer &amp; GPU Inference Specialist</p>
-          <p class="hero-intro">Building dependable, high-performance AI systems — from computer vision models to real-time inference and production deployment.</p>
+          <p class="hero-intro">I turn ambitious AI models into reliable, real-time systems — optimizing the path from <strong>PyTorch to GPU inference</strong>, across edge devices and production infrastructure.</p>
           <a class="hero-action" href="https://github.com/Keval-P" target="_blank" rel="noopener noreferrer">
             Explore my GitHub
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
           </a>
+          <a class="hero-secondary" href="#work">View selected work <span aria-hidden="true">↘</span></a>
+          <div class="hero-proof" aria-label="Areas of expertise"><span>Computer vision</span><span>GPU acceleration</span><span>Edge AI</span><span>LLM / RAG</span></div>
         </div>
         <div class="visual" role="img" aria-label="Abstract engineering illustration with connected circular layers representing AI systems from models to deployment">
-          <div class="visual-kicker">Engineering / in production</div>
-          <div class="visual-index">01 — 01</div>
+          <div class="visual-kicker"><span class="live-dot" aria-hidden="true"></span> ENGINEERING / IN PRODUCTION</div>
+          <div class="visual-index">CV · CUDA · EDGE</div>
           <div class="orbit orbit-a"></div>
           <div class="orbit orbit-b"></div>
           <div class="orbit orbit-c"></div>
@@ -221,8 +359,16 @@
           </div>
           <span class="float-tag tag-one"><i aria-hidden="true"></i> Accelerated AI</span>
           <span class="float-tag tag-two"><i aria-hidden="true"></i> Real-time systems</span>
-          <div class="visual-stamp"><span>Model → Inference → Deployment</span></div>
+          <div class="visual-stamp"><span>MODEL → INFERENCE → DEPLOYMENT</span><span>01 / 03</span></div>
         </div>
+      </section>
+
+
+      <section class="impact-band container" aria-label="Engineering at a glance">
+        <div class="impact-item"><span class="impact-value">15<span class="impact-plus">+</span></span><span class="impact-label">AI solutions delivered</span></div>
+        <div class="impact-item"><span class="impact-value">20<span class="impact-unit"> cams</span></span><span class="impact-label">On a single Orin Nano</span></div>
+        <div class="impact-item"><span class="impact-value">24<span class="impact-arrow">→</span>60<span class="impact-unit"> FPS</span></span><span class="impact-label">Gate automation throughput</span></div>
+        <div class="impact-item impact-availability"><span class="availability-dot" aria-hidden="true"></span><span>CV · GPU inference · Edge AI</span></div>
       </section>
 
       <section class="summary container" id="about" aria-labelledby="summary-title">
@@ -232,7 +378,54 @@
         </p>
       </section>
 
-      <section class="skills container" id="skills" aria-labelledby="skills-title"><div class="skills-heading"><div><div class="section-label"><span>02 /</span> Technical expertise</div><h2 class="skills-title" id="skills-title">Skills &amp; technologies<span style="color:var(--accent)">.</span></h2></div><p class="skills-subtitle">Technologies and model families grouped by function, with languages, frameworks, architectures, inference tools, and infrastructure kept separate.</p></div><div class="skills-grid"><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">01 / 15</span><span class="skill-card-mark" aria-hidden="true">📁</span></div><h3>Programming Languages</h3><ul class="skill-list"><li>Python</li><li>C++</li><li>CUDA C++ / PyCUDA</li><li>Bash / Shell</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">02 / 15</span><span class="skill-card-mark" aria-hidden="true">🤖</span></div><h3>Deep Learning Frameworks</h3><ul class="skill-list"><li>PyTorch</li><li>PyTorch Lightning</li><li>TensorFlow</li><li>Keras</li><li>PaddlePaddle</li><li>Hugging Face Transformers</li><li>Unsloth</li><li>Ultralytics</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">03 / 15</span><span class="skill-card-mark" aria-hidden="true">🧠</span></div><h3>Computer Vision Model Architectures</h3><ul class="skill-list"><li>YOLO (v1–v26)</li><li>ResNet</li><li>MobileNet (V1–V4)</li><li>Vision Transformer (ViT)</li><li>SegFormer</li><li>Mask2Former</li><li>U-Net</li><li>V-Net</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">04 / 15</span><span class="skill-card-mark" aria-hidden="true">⚡</span></div><h3>Model Optimization &amp; Inference</h3><ul class="skill-list"><li>TensorRT</li><li>TensorRT Plugins</li><li>TensorRT-LLM</li><li>Triton Inference Server</li><li>ONNX</li><li>ONNX Runtime</li><li>CV-CUDA</li><li>cuDNN</li><li>cuBLAS</li><li>NVML</li><li>Nsight Systems / Compute</li><li>trtexec</li><li>CUDA Streams / Events</li><li>Pinned / Unified Memory</li><li>FP16 / 4-bit Quantization</li><li>ONNX Graph Surgery</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">05 / 15</span><span class="skill-card-mark" aria-hidden="true">👁️</span></div><h3>Computer Vision &amp; Media</h3><ul class="skill-list"><li>OpenCV</li><li>DeepStream</li><li>GStreamer / NVDEC</li><li>FFmpeg</li><li>RTSP / ONVIF</li><li>PaddleOCR</li><li>Anomalib</li><li>SAHI</li><li>ByteTrack</li><li>Object Detection</li><li>Classification</li><li>Segmentation</li><li>Face Detection / Recognition</li><li>Face Keypoints</li><li>Re-ID / Multi-object Tracking</li><li>OCR / ANPR</li><li>Anomaly Detection</li><li>Optical Flow</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">06 / 15</span><span class="skill-card-mark" aria-hidden="true">💬</span></div><h3>NLP &amp; LLM</h3><ul class="skill-list"><li>LLMs / VLMs</li><li>vLLM</li><li>Ollama</li><li>Sentence Transformers</li><li>RAG</li><li>Attention / CNN / RNN / LSTM</li><li>Embeddings &amp; Retrieval</li><li>VLM Fine-tuning</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">07 / 15</span><span class="skill-card-mark" aria-hidden="true">✨</span></div><h3>LLM &amp; VLM Model Families</h3><ul class="skill-list"><li>Gemma</li><li>GLM</li><li>GLM-OCR</li><li>Qwen</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">08 / 15</span><span class="skill-card-mark" aria-hidden="true">📊</span></div><h3>Data Science &amp; Numerical Computing</h3><ul class="skill-list"><li>NumPy</li><li>Pandas</li><li>mAP / F1 Evaluation</li><li>Mixed-Precision Training</li><li>Distributed Data Parallel (DDP)</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">09 / 15</span><span class="skill-card-mark" aria-hidden="true">🌐</span></div><h3>Python Frameworks</h3><ul class="skill-list"><li>FastAPI</li><li>LangChain</li><li>LangGraph</li><li>AsyncIO</li><li>Multithreading</li><li>Multiprocessing</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">10 / 15</span><span class="skill-card-mark" aria-hidden="true">🗄️</span></div><h3>Databases</h3><ul class="skill-list"><li>Qdrant</li><li>FAISS</li><li>MongoDB</li><li>Redis</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">11 / 15</span><span class="skill-card-mark" aria-hidden="true">📦</span></div><h3>Messaging</h3><ul class="skill-list"><li>RabbitMQ</li><li>Kafka</li><li>Event-driven Architecture</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">12 / 15</span><span class="skill-card-mark" aria-hidden="true">🔧</span></div><h3>CI/CD &amp; Version Control</h3><ul class="skill-list"><li>Git</li><li>pytest</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">13 / 15</span><span class="skill-card-mark" aria-hidden="true">💻</span></div><h3>DevOps &amp; Tools</h3><ul class="skill-list"><li>GitHub</li><li>GitHub Actions</li><li>Docker</li><li>Docker Compose</li><li>Kubernetes</li><li>Linux</li><li>CMake</li><li>MLflow</li><li>Weights &amp; Biases</li><li>NVIDIA GPU Operator</li><li>JetPack</li></ul></article><article class="skill-card skill-card--pending"><div class="skill-card-top"><span class="skill-card-num">14 / 15</span><span class="skill-card-mark" aria-hidden="true">☁️</span></div><h3>Cloud Providers</h3><p class="skill-pending">Provider-specific experience to be added.</p></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">15 / 15</span><span class="skill-card-mark" aria-hidden="true">🖥️</span></div><h3>Hardware</h3><ul class="skill-list"><li>Jetson Orin Nano</li><li>Jetson Orin NX</li><li>Jetson AGX Orin</li><li>Jetson AGX Xavier</li><li>Jetson Nano</li><li>NVIDIA RTX GPUs</li><li>Axelera AIPU</li><li>Coral Edge TPU</li><li>Raspberry Pi</li><li>Multi-GPU Systems</li></ul></article></div></section>
+
+      <section class="work-section container" id="work" aria-labelledby="work-title">
+        <div class="work-heading">
+          <div>
+            <div class="section-label"><span>02 /</span> Selected engineering work</div>
+            <h2 id="work-title">Built beyond the <em>prototype.</em></h2>
+          </div>
+          <p>Real systems. Real constraints. From multi-camera vision pipelines to production-grade inference.</p>
+        </div>
+        <div class="work-grid">
+          <article class="work-card work-card-featured">
+            <div class="work-card-top"><span class="work-index">01 / INDUSTRIAL VISION</span><span class="work-symbol" aria-hidden="true">↗</span></div>
+            <div class="work-graphic work-graphic-safety" aria-hidden="true"><div class="scan-frame"><span class="scan-corner tl"></span><span class="scan-corner tr"></span><span class="scan-corner bl"></span><span class="scan-corner br"></span><span class="scan-cross">+</span></div><span class="scan-label">MULTI-STREAM / LIVE</span></div>
+            <div class="work-card-content">
+              <h3>Industrial safety at the edge</h3>
+              <p>Rebuilt a GPU-resident multi-camera pipeline using GStreamer, NVDEC, and PyCUDA to improve throughput while reducing device load.</p>
+              <div class="work-result"><strong>5 → 20 cameras</strong><span>3 FPS → 10 FPS per stream</span></div>
+              <div class="work-tags"><span>Jetson Orin Nano</span><span>GStreamer</span><span>PyCUDA</span></div>
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="work-card-top"><span class="work-index">02 / ACCELERATED INFERENCE</span><span class="work-symbol" aria-hidden="true">↗</span></div>
+            <div class="work-graphic work-graphic-gate" aria-hidden="true"><div class="gate-track"><span></span><span></span><span></span><span></span></div><div class="gate-readout">60 <small>FPS</small></div></div>
+            <div class="work-card-content">
+              <h3>Logistics &amp; gate automation</h3>
+              <p>Optimized synchronized camera workflows with TensorRT FP16 engines and multiprocessing for production gate monitoring.</p>
+              <div class="work-result"><strong>24 → 60 FPS</strong><span>System-wide gate throughput</span></div>
+              <div class="work-tags"><span>TensorRT</span><span>Computer Vision</span><span>Edge AI</span></div>
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="work-card-top"><span class="work-index">03 / RECOGNITION SYSTEMS</span><span class="work-symbol" aria-hidden="true">↗</span></div>
+            <div class="work-graphic work-graphic-face" aria-hidden="true"><div class="face-target"><span></span><span></span><span></span><span></span></div><div class="face-signal">EMBEDDING / MATCH</div></div>
+            <div class="work-card-content">
+              <h3>Multi-camera face recognition</h3>
+              <p>Designed a production recognition pipeline spanning detection, alignment, embeddings, vector search, and anti-spoofing.</p>
+              <div class="work-result"><strong>C++ / ONNX Runtime</strong><span>CUDA EP · FAISS · Qdrant</span></div>
+              <div class="work-tags"><span>C++</span><span>ONNX Runtime</span><span>Vector Search</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="skills container" id="skills" aria-labelledby="skills-title"><div class="skills-heading"><div><div class="section-label"><span>03 /</span> Technical expertise</div><h2 class="skills-title" id="skills-title">Skills &amp; technologies<span style="color:var(--accent)">.</span></h2></div><p class="skills-subtitle">Technologies and model families grouped by function, with languages, frameworks, architectures, inference tools, and infrastructure kept separate.</p></div><div class="skills-grid"><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">01 / 15</span><span class="skill-card-mark" aria-hidden="true">📁</span></div><h3>Programming Languages</h3><ul class="skill-list"><li>Python</li><li>C++</li><li>CUDA C++ / PyCUDA</li><li>Bash / Shell</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">02 / 15</span><span class="skill-card-mark" aria-hidden="true">🤖</span></div><h3>Deep Learning Frameworks</h3><ul class="skill-list"><li>PyTorch</li><li>PyTorch Lightning</li><li>TensorFlow</li><li>Keras</li><li>PaddlePaddle</li><li>Hugging Face Transformers</li><li>Unsloth</li><li>Ultralytics</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">03 / 15</span><span class="skill-card-mark" aria-hidden="true">🧠</span></div><h3>Computer Vision Model Architectures</h3><ul class="skill-list"><li>YOLO (v1–v26)</li><li>ResNet</li><li>MobileNet (V1–V4)</li><li>Vision Transformer (ViT)</li><li>SegFormer</li><li>Mask2Former</li><li>U-Net</li><li>V-Net</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">04 / 15</span><span class="skill-card-mark" aria-hidden="true">⚡</span></div><h3>Model Optimization &amp; Inference</h3><ul class="skill-list"><li>TensorRT</li><li>TensorRT Plugins</li><li>TensorRT-LLM</li><li>Triton Inference Server</li><li>ONNX</li><li>ONNX Runtime</li><li>CV-CUDA</li><li>cuDNN</li><li>cuBLAS</li><li>NVML</li><li>Nsight Systems / Compute</li><li>trtexec</li><li>CUDA Streams / Events</li><li>Pinned / Unified Memory</li><li>FP16 / 4-bit Quantization</li><li>ONNX Graph Surgery</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">05 / 15</span><span class="skill-card-mark" aria-hidden="true">👁️</span></div><h3>Computer Vision &amp; Media</h3><ul class="skill-list"><li>OpenCV</li><li>DeepStream</li><li>GStreamer / NVDEC</li><li>FFmpeg</li><li>RTSP / ONVIF</li><li>PaddleOCR</li><li>Anomalib</li><li>SAHI</li><li>ByteTrack</li><li>Object Detection</li><li>Classification</li><li>Segmentation</li><li>Face Detection / Recognition</li><li>Face Keypoints</li><li>Re-ID / Multi-object Tracking</li><li>OCR / ANPR</li><li>Anomaly Detection</li><li>Optical Flow</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">06 / 15</span><span class="skill-card-mark" aria-hidden="true">💬</span></div><h3>NLP &amp; LLM</h3><ul class="skill-list"><li>LLMs / VLMs</li><li>vLLM</li><li>Ollama</li><li>Sentence Transformers</li><li>RAG</li><li>Attention / CNN / RNN / LSTM</li><li>Embeddings &amp; Retrieval</li><li>VLM Fine-tuning</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">07 / 15</span><span class="skill-card-mark" aria-hidden="true">✨</span></div><h3>LLM &amp; VLM Model Families</h3><ul class="skill-list"><li>Gemma</li><li>GLM</li><li>GLM-OCR</li><li>Qwen</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">08 / 15</span><span class="skill-card-mark" aria-hidden="true">📊</span></div><h3>Data Science &amp; Numerical Computing</h3><ul class="skill-list"><li>NumPy</li><li>Pandas</li><li>mAP / F1 Evaluation</li><li>Mixed-Precision Training</li><li>Distributed Data Parallel (DDP)</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">09 / 15</span><span class="skill-card-mark" aria-hidden="true">🌐</span></div><h3>Python Frameworks</h3><ul class="skill-list"><li>FastAPI</li><li>LangChain</li><li>LangGraph</li><li>AsyncIO</li><li>Multithreading</li><li>Multiprocessing</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">10 / 15</span><span class="skill-card-mark" aria-hidden="true">🗄️</span></div><h3>Databases</h3><ul class="skill-list"><li>Qdrant</li><li>FAISS</li><li>MongoDB</li><li>Redis</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">11 / 15</span><span class="skill-card-mark" aria-hidden="true">📦</span></div><h3>Messaging</h3><ul class="skill-list"><li>RabbitMQ</li><li>Kafka</li><li>Event-driven Architecture</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">12 / 15</span><span class="skill-card-mark" aria-hidden="true">🔧</span></div><h3>CI/CD &amp; Version Control</h3><ul class="skill-list"><li>Git</li><li>pytest</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">13 / 15</span><span class="skill-card-mark" aria-hidden="true">💻</span></div><h3>DevOps &amp; Tools</h3><ul class="skill-list"><li>GitHub</li><li>GitHub Actions</li><li>Docker</li><li>Docker Compose</li><li>Kubernetes</li><li>Linux</li><li>CMake</li><li>MLflow</li><li>Weights &amp; Biases</li><li>NVIDIA GPU Operator</li><li>JetPack</li></ul></article><article class="skill-card skill-card--pending"><div class="skill-card-top"><span class="skill-card-num">14 / 15</span><span class="skill-card-mark" aria-hidden="true">☁️</span></div><h3>Cloud Providers</h3><p class="skill-pending">Provider-specific experience to be added.</p></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">15 / 15</span><span class="skill-card-mark" aria-hidden="true">🖥️</span></div><h3>Hardware</h3><ul class="skill-list"><li>Jetson Orin Nano</li><li>Jetson Orin NX</li><li>Jetson AGX Orin</li><li>Jetson AGX Xavier</li><li>Jetson Nano</li><li>NVIDIA RTX GPUs</li><li>Axelera AIPU</li><li>Coral Edge TPU</li><li>Raspberry Pi</li><li>Multi-GPU Systems</li></ul></article></div></section>
+      <section class="contact-section container" id="contact" aria-labelledby="contact-title">
+        <div class="contact-copy"><span class="contact-eyebrow">LET'S BUILD SOMETHING USEFUL</span><h2 id="contact-title">Great AI is built<br>to <em>run in the real world.</em></h2><p>Interested in computer vision, accelerated inference, or production AI engineering? Let's connect.</p></div>
+        <a href="mailto:kevalpandya760@gmail.com" class="contact-button">Get in touch <span aria-hidden="true">↗</span></a>
+      </section>
     </main>
 
     <footer class="footer container">
