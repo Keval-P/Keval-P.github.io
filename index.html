@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f6f7f8" />
+  <meta name="theme-color" content="#f8f9fc" />
   <meta name="description" content="Keval Pandya — AI/ML Engineer focused on production computer vision, GPU inference optimization, Edge AI, and Generative AI systems." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Keval Pandya | AI/ML Engineer" />
@@ -14,6 +14,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('portfolio-theme');
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = saved === 'dark' || saved === 'light' ? saved : (systemDark ? 'dark' : 'light');
+      } catch (error) {
+        document.documentElement.dataset.theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+    })();
+  </script>
   <style>
     :root {
       color-scheme: light;
@@ -314,6 +325,81 @@
     @media(max-width:400px) { .nav-contact{font-size:11px} .impact-label{font-size:10px} .contact-section{padding:29px 22px} }
     @media(prefers-reduced-motion:reduce) { .work-card,.contact-button{transition:none} }
 
+
+    /* Accessible light/dark theme switcher */
+    .theme-toggle { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-width:43px; height:42px; padding:0 12px; background:#fff; color:#28395a; border:1px solid #d7e0ed; border-radius:11px; cursor:pointer; font:700 12px/1 "DM Sans",sans-serif; transition:background .2s,color .2s,border-color .2s,transform .2s; }
+    .theme-toggle:hover { transform:translateY(-2px); background:#edf2ff; border-color:#b9c8f0; }
+    .theme-toggle:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+    .theme-icon { width:19px; height:19px; flex:none; }
+    .theme-icon-sun { display:none; }
+    html[data-theme="dark"] .theme-icon-moon { display:none; }
+    html[data-theme="dark"] .theme-icon-sun { display:block; }
+    html[data-theme="dark"] { color-scheme:dark; --paper:#0b1220; --paper-2:#111d30; --ink:#edf3ff; --soft-ink:#adbbd2; --muted:#91a3bf; --line:#263750; --accent:#93aaff; --accent-deep:#577cff; }
+    html[data-theme="dark"] body { background:var(--paper); color:var(--ink); }
+    html[data-theme="dark"] .site-shell { background:radial-gradient(ellipse 70% 19% at 80% 2%,rgba(54,78,140,.26),transparent 75%),var(--paper); }
+    html[data-theme="dark"] .site-shell::before { background:radial-gradient(circle,rgba(86,114,221,.1),transparent 67%); }
+    html[data-theme="dark"] .header { border-color:#293b54; }
+    html[data-theme="dark"] .identity-mark { background:linear-gradient(135deg,#283e69,#5575c6); color:#fff; }
+    html[data-theme="dark"] .identity-label small { color:#9cadc8; }
+    html[data-theme="dark"] .nav-link.secondary { color:#b5c2d9; }
+    html[data-theme="dark"] .nav-link.secondary:hover { background:#1b2a44; color:#fff; }
+    html[data-theme="dark"] .nav-contact { background:#e9f0ff; color:#142340; }
+    html[data-theme="dark"] .nav-contact:hover { background:#bfd0ff; color:#142340; }
+    html[data-theme="dark"] .theme-toggle { background:#18263d; color:#f5d28c; border-color:#344866; }
+    html[data-theme="dark"] .theme-toggle:hover { background:#223657; border-color:#637baa; }
+    html[data-theme="dark"] .eyebrow { color:#a4b8ff; }
+    html[data-theme="dark"] .eyebrow::before { background:#93aaff; box-shadow:0 0 0 5px rgba(147,170,255,.14); }
+    html[data-theme="dark"] .eyebrow-divider { color:#62769b; }
+    html[data-theme="dark"] .hero h1 .last-name { background:linear-gradient(105deg,#9ab0ff,#c6a4ff); background-clip:text; -webkit-background-clip:text; color:transparent; }
+    html[data-theme="dark"] .hero-intro strong { color:#e8efff; }
+    html[data-theme="dark"] .hero-action { background:#5577ed; color:#fff; box-shadow:0 10px 24px rgba(18,36,92,.3); }
+    html[data-theme="dark"] .hero-action:hover { background:#7292ff; }
+    html[data-theme="dark"] .hero-secondary { background:#17263e; border-color:#3a4c69; color:#e5edff; }
+    html[data-theme="dark"] .hero-secondary:hover { background:#213551; border-color:#7089c6; }
+    html[data-theme="dark"] .hero-proof span { background:#16253c; border-color:#30425f; color:#c1cde3; }
+    html[data-theme="dark"] .visual { border-color:#3b5075; }
+    html[data-theme="dark"] .impact-band { background:#142138; border-color:#2d3f5a; box-shadow:0 18px 44px -38px rgba(0,0,0,.65); }
+    html[data-theme="dark"] .impact-item { border-color:#2a3b54; }
+    html[data-theme="dark"] .impact-availability { background:#192a44; color:#c2d0ea; border-color:#2a3b54; }
+    html[data-theme="dark"] .impact-label { color:#a6b6ce; }
+    html[data-theme="dark"] .impact-arrow { color:#9ab2e9; }
+    html[data-theme="dark"] .section-label { color:#a6b9ff; }
+    html[data-theme="dark"] .section-label span { color:#7285a4; }
+    html[data-theme="dark"] .summary-copy { color:#bdcbe0; }
+    html[data-theme="dark"] .summary-copy strong { color:#eef4ff; }
+    html[data-theme="dark"] .work-heading h2 em { color:#a0b4ff; }
+    html[data-theme="dark"] .work-card { background:#142138; border-color:#30415c; }
+    html[data-theme="dark"] .work-card:hover { border-color:#708ac4; box-shadow:0 22px 55px -36px rgba(0,0,0,.65); }
+    html[data-theme="dark"] .work-index { color:#a7b7d0; }
+    html[data-theme="dark"] .work-symbol { color:#a5b9f5; }
+    html[data-theme="dark"] .work-card-content p { color:#b0bed4; }
+    html[data-theme="dark"] .work-result { border-color:#30415b; }
+    html[data-theme="dark"] .work-result strong { color:#adc0ff; }
+    html[data-theme="dark"] .work-result span { color:#a3b4ce; }
+    html[data-theme="dark"] .work-tags span { background:#1d2c46; border-color:#334664; color:#c1cee2; }
+    html[data-theme="dark"] .work-graphic-gate { background:linear-gradient(145deg,#1c335a,#294c86); }
+    html[data-theme="dark"] .gate-track { border-color:rgba(165,190,247,.34); }
+    html[data-theme="dark"] .gate-track span { background:rgba(165,190,247,.28); }
+    html[data-theme="dark"] .gate-readout { color:#a7bdff; text-shadow:0 5px 25px rgba(6,15,41,.4); }
+    html[data-theme="dark"] .skills-heading { border-color:#30415b; }
+    html[data-theme="dark"] .skill-card { background:#142138; border-color:#30415b; box-shadow:0 9px 25px -25px rgba(0,0,0,.8); }
+    html[data-theme="dark"] .skill-card:hover { border-color:#6c86c0; box-shadow:0 22px 44px -30px rgba(0,0,0,.7); }
+    html[data-theme="dark"] .skill-card-mark { background:#233858; border-color:#3a547e; color:#c4d1ff; }
+    html[data-theme="dark"] .skill-card-num { color:#a1b2cb; }
+    html[data-theme="dark"] .skill-list li { background:#1d2d47; border-color:#334865; color:#d3dded; }
+    html[data-theme="dark"] .skill-card:hover .skill-list li { background:#243753; border-color:#496185; }
+    html[data-theme="dark"] .skill-card--pending { background:#111d30; border-style:dashed; }
+    html[data-theme="dark"] .skill-pending { color:#9aacc7; }
+    html[data-theme="dark"] .contact-section { border:1px solid #354d75; background:radial-gradient(ellipse at 85% 20%,rgba(93,123,216,.3),transparent 50%),linear-gradient(125deg,#172943,#203a61); }
+    html[data-theme="dark"] .contact-button { background:#e8efff; color:#142340; }
+    html[data-theme="dark"] .contact-button:hover { background:#cbd9ff; }
+    html[data-theme="dark"] .footer a { color:#b9c8df; }
+    html[data-theme="dark"] .footer a:hover { color:#d9e3ff; }
+    @media(max-width:760px) { .theme-toggle { padding:0 10px; } .theme-toggle-label { display:none; } }
+    @media(max-width:530px) { .header-actions > a[href="https://github.com/Keval-P"] { display:none; } }
+    @media(max-width:370px) { .header-actions .nav-contact { display:none; } }
+    @media(prefers-reduced-motion:reduce) { .theme-toggle { transition:none; } }
+
   </style>
 </head>
 <body>
@@ -326,6 +412,11 @@
       <nav class="header-actions" aria-label="Main navigation">
         <a class="nav-link secondary nav-work" href="#work">Work</a>
         <a class="nav-link secondary" href="#skills">Skills</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 13.1A8.7 8.7 0 0 1 10.9 3.5 8.7 8.7 0 1 0 20.5 13.1Z"/></svg>
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+          <span class="theme-toggle-label">Theme</span>
+        </button>
         <a class="nav-link nav-contact" href="mailto:kevalpandya760@gmail.com">Contact <span aria-hidden="true">↗</span></a>
       <a class="nav-link" href="https://github.com/Keval-P" target="_blank" rel="noopener noreferrer" aria-label="Visit Keval Pandya's GitHub profile">
         GitHub
@@ -433,5 +524,26 @@
       <a href="https://github.com/Keval-P" target="_blank" rel="noopener noreferrer">Built to keep evolving ↗</a>
     </footer>
   </div>
+  <script>
+    (function () {
+      var toggle = document.getElementById('theme-toggle');
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (!toggle) return;
+      function sync() {
+        var dark = document.documentElement.dataset.theme === 'dark';
+        toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.setAttribute('aria-pressed', String(dark));
+        if (meta) meta.setAttribute('content', dark ? '#0b1220' : '#f8f9fc');
+      }
+      toggle.addEventListener('click', function () {
+        var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem('portfolio-theme', next); } catch (error) { /* Storage can be disabled. */ }
+        sync();
+      });
+      sync();
+    })();
+  </script>
 </body>
 </html>
