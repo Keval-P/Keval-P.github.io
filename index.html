@@ -433,6 +433,38 @@
     @media(max-width:370px) { .header-actions .nav-contact { display:none; } }
     @media(prefers-reduced-motion:reduce) { .theme-toggle { transition:none; } }
 
+      /* ---- motion: reveal on scroll, hero entrance, small live details ---- */
+    .scroll-progress { position:fixed; top:0; left:0; height:3px; width:100%; transform-origin:0 50%; transform:scaleX(0); background:linear-gradient(90deg,var(--accent),#7aa2ff); z-index:1000; pointer-events:none; }
+    .summary-copy a { color:var(--accent); text-decoration:none; border-bottom:1px solid currentColor; }
+    @media(min-width:1101px) { .work-card-last { grid-column:1 / -1; } .work-card-last .work-graphic { height:170px; } }
+    @media(prefers-reduced-motion:no-preference) {
+      html.js-anim .reveal { opacity:0; transform:translateY(26px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); transition-delay:var(--d,0ms); will-change:opacity,transform; }
+      html.js-anim .reveal.is-visible { opacity:1; transform:none; }
+      html.js-anim .work-card.reveal.is-visible:hover { transform:translateY(-4px); transition-delay:0ms; }
+      html.js-anim .hero-copy > * { opacity:0; animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+      html.js-anim .hero-copy > *:nth-child(1) { animation-delay:.05s } html.js-anim .hero-copy > *:nth-child(2) { animation-delay:.15s }
+      html.js-anim .hero-copy > *:nth-child(3) { animation-delay:.25s } html.js-anim .hero-copy > *:nth-child(4) { animation-delay:.35s }
+      html.js-anim .hero-copy > *:nth-child(5) { animation-delay:.45s } html.js-anim .hero-copy > *:nth-child(6) { animation-delay:.55s }
+      html.js-anim .hero-copy > *:nth-child(n+7) { animation-delay:.65s }
+      html.js-anim .visual { opacity:0; animation:rise 1s cubic-bezier(.2,.7,.2,1) .3s forwards, drift 9s ease-in-out 1.4s infinite; }
+      .last-name { background:linear-gradient(100deg,var(--accent) 20%,#7aa2ff 40%,var(--accent) 60%); background-size:220% 100%; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; animation:sheen 7s linear infinite; }
+      .live-dot, .availability-dot { animation:pulse 2s ease-in-out infinite; }
+      .gate-track span { animation:bars 1.8s ease-in-out infinite; transform-origin:50% 100%; }
+      .gate-track span:nth-child(2) { animation-delay:.2s } .gate-track span:nth-child(3) { animation-delay:.4s } .gate-track span:nth-child(4) { animation-delay:.6s }
+      .face-target span { animation:pulse 2.4s ease-in-out infinite; } .face-target span:nth-child(2) { animation-delay:.3s } .face-target span:nth-child(3) { animation-delay:.6s } .face-target span:nth-child(4) { animation-delay:.9s }
+      .scan-cross { animation:pulse 2s ease-in-out infinite; }
+      .work-tags span, .skill-list li, .hero-proof span { transition:transform .2s, color .2s, border-color .2s; }
+      .work-tags span:hover, .hero-proof span:hover { transform:translateY(-2px); color:var(--accent); }
+      .skill-card { transition:transform .25s, box-shadow .25s, border-color .25s; }
+      .skill-card:hover { transform:translateY(-4px); box-shadow:0 22px 55px -36px rgba(25,55,125,.3); }
+      .hero-action, .contact-button { transition:transform .2s, box-shadow .2s; }
+      .hero-action:hover, .contact-button:hover { transform:translateY(-2px); }
+    }
+    @keyframes rise { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:none; } }
+    @keyframes drift { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
+    @keyframes sheen { from { background-position:220% 0; } to { background-position:0 0; } }
+    @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.35; } }
+    @keyframes bars { 0%,100% { transform:scaleY(1); } 50% { transform:scaleY(.55); } }
   </style>
 </head>
 <body>
@@ -498,7 +530,7 @@
       <section class="summary container" id="about" aria-labelledby="summary-title">
         <h2 class="section-label" id="summary-title"><span>01 /</span> Professional summary</h2>
         <p class="summary-copy">
-          <strong>AI/ML Engineer with nearly 3 years of hands-on experience</strong> designing, developing, and deploying production AI solutions across <strong>Computer Vision, GPU Inference, Edge AI, and Generative AI.</strong> Contributed to <strong>15+ AI solutions</strong>, including real-time multi-camera systems, optimized model inference, and scalable AI applications. Experienced with PyTorch, ONNX, CUDA/PyCUDA, TensorRT, DeepStream, and GStreamer, alongside VLM fine-tuning and LLM/RAG workflows.
+          <strong>AI/ML Engineer with 3 years of experience</strong> designing, developing, and deploying production AI systems across <strong>Computer Vision, GPU Inference, and Edge AI.</strong> Developed and deployed <strong>15+ AI solutions</strong> across industrial automation, logistics, safety monitoring, and face recognition projects. Experienced in end-to-end model development, inference optimization, and real-time multi-camera systems using PyTorch, ONNX, TensorRT, PyCUDA, DeepStream, and GStreamer, with a strong background in scalable AI architectures, hardware-specific optimization, VLM fine-tuning, and LLM/RAG applications.
         </p>
       </section>
 
@@ -517,7 +549,7 @@
             <div class="work-graphic work-graphic-safety" aria-hidden="true"><div class="scan-frame"><span class="scan-corner tl"></span><span class="scan-corner tr"></span><span class="scan-corner bl"></span><span class="scan-corner br"></span><span class="scan-cross">+</span></div><span class="scan-label">MULTI-STREAM / LIVE</span></div>
             <div class="work-card-content">
               <h3>Industrial safety at the edge</h3>
-              <p>Rebuilt a GPU-resident multi-camera pipeline using GStreamer, NVDEC, and PyCUDA to improve throughput while reducing device load.</p>
+              <p>Real-time danger-zone monitoring with detection, tracking, and polygon zones that stop machinery on intrusion. GStreamer, NVDEC, PyCUDA, and multiprocessing cut CPU load by 60% and VRAM from ~7 GB to 3–4 GB.</p>
               <div class="work-result"><strong>5 → 20 cameras</strong><span>3 FPS → 10 FPS per stream</span></div>
               <div class="work-tags"><span>Jetson Orin Nano</span><span>GStreamer</span><span>PyCUDA</span></div>
             </div>
@@ -527,7 +559,7 @@
             <div class="work-graphic work-graphic-gate" aria-hidden="true"><div class="gate-track"><span></span><span></span><span></span><span></span></div><div class="gate-readout">60 <small>FPS</small></div></div>
             <div class="work-card-content">
               <h3>Logistics &amp; gate automation</h3>
-              <p>Optimized synchronized camera workflows with TensorRT FP16 engines and multiprocessing for production gate monitoring.</p>
+              <p>Multi-camera gate automation: vehicle detection, container classification, OCR, damage inspection, and VLM metadata extraction, on FP16 TensorRT engines with PyCUDA pre/post-processing. Yard monitoring went from 2 to 10 FPS; a fine-tuned VLM lifted end-to-end accuracy from 85% to 95%.</p>
               <div class="work-result"><strong>24 → 60 FPS</strong><span>System-wide gate throughput</span></div>
               <div class="work-tags"><span>TensorRT</span><span>Computer Vision</span><span>Edge AI</span></div>
             </div>
@@ -537,15 +569,65 @@
             <div class="work-graphic work-graphic-face" aria-hidden="true"><div class="face-target"><span></span><span></span><span></span><span></span></div><div class="face-signal">EMBEDDING / MATCH</div></div>
             <div class="work-card-content">
               <h3>Multi-camera face recognition</h3>
-              <p>Designed a production recognition pipeline spanning detection, alignment, embeddings, vector search, and anti-spoofing.</p>
+              <p>Detection, alignment, embeddings, vector search, and anti-spoofing with custom-trained models; FAISS on device and Qdrant for larger galleries. Migrated from Python to C++ with native threads and preallocated buffers.</p>
               <div class="work-result"><strong>C++ / ONNX Runtime</strong><span>CUDA EP · FAISS · Qdrant</span></div>
               <div class="work-tags"><span>C++</span><span>ONNX Runtime</span><span>Vector Search</span></div>
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="work-card-top"><span class="work-index">04 / MODEL ARCHITECTURE</span><span class="work-symbol" aria-hidden="true">↗</span></div>
+            <div class="work-graphic work-graphic-gate" aria-hidden="true"><div class="gate-track"><span></span><span></span><span></span><span></span></div><div class="gate-readout">500 <small>MS</small></div></div>
+            <div class="work-card-content">
+              <h3>Industrial anomaly detection</h3>
+              <p>Custom model for small-object and surface-defect detection; detection-head changes and training-pipeline work raised accuracy from 78% to 95%, with the architecture optimized for Jetson Orin NX (8 GB).</p>
+              <div class="work-result"><strong>5 s → 500 ms</strong><span>Per frame, 10× faster</span></div>
+              <div class="work-tags"><span>Jetson Orin NX</span><span>Small objects</span><span>Model design</span></div>
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="work-card-top"><span class="work-index">05 / PLATE RECOGNITION</span><span class="work-symbol" aria-hidden="true">↗</span></div>
+            <div class="work-graphic work-graphic-gate" aria-hidden="true"><div class="gate-track"><span></span><span></span><span></span><span></span></div><div class="gate-readout">11 <small>FPS</small></div></div>
+            <div class="work-card-content">
+              <h3>Automatic number plate recognition</h3>
+              <p>Two-stage ANPR: plate detection with perspective rectification, then a CTC recognition model with multi-frame voting. TensorRT engines and batched recognition raised throughput from 3–5 to 11 FPS per camera; Kubernetes workers autoscale with KEDA and HPA.</p>
+              <div class="work-result"><strong>70% → 95–98%</strong><span>Recognition accuracy</span></div>
+              <div class="work-tags"><span>TensorRT</span><span>OCR</span><span>Kubernetes</span></div>
+            </div>
+          </article>
+          <article class="work-card">
+            <div class="work-card-top"><span class="work-index">06 / DEEPSTREAM</span><span class="work-symbol" aria-hidden="true">↗</span></div>
+            <div class="work-graphic work-graphic-gate" aria-hidden="true"><div class="gate-track"><span></span><span></span><span></span><span></span></div><div class="gate-readout">15 <small>FPS</small></div></div>
+            <div class="work-card-content">
+              <h3>Object detection &amp; counting</h3>
+              <p>Multi-camera DeepStream pipeline with nvstreammux, nvinfer, and nvtracker, counting objects through tracking IDs and line-crossing logic, with batching and FP16 TensorRT engines.</p>
+              <div class="work-result"><strong>7 → 15 FPS</strong><span>On a 4 GB Jetson</span></div>
+              <div class="work-tags"><span>DeepStream</span><span>Jetson</span><span>Tracking</span></div>
+            </div>
+          </article>
+          <article class="work-card work-card-last">
+            <div class="work-card-top"><span class="work-index">07 / DIGITAL TWIN</span><span class="work-symbol" aria-hidden="true">↗</span></div>
+            <div class="work-graphic work-graphic-face" aria-hidden="true"><div class="face-target"><span></span><span></span><span></span><span></span></div><div class="face-signal">FLOOR MAP / RE-ID</div></div>
+            <div class="work-card-content">
+              <h3>Digital twin monitoring</h3>
+              <p>Live person positions on a facility floor map: person detection, face recognition, and cross-camera re-identification, with boxes mapped to floor coordinates through per-camera homography calibration.</p>
+              <div class="work-result"><strong>Multi-camera</strong><span>Homography · Re-ID · Face recognition</span></div>
+              <div class="work-tags"><span>CUDA</span><span>Re-ID</span><span>Calibration</span></div>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="skills container" id="skills" aria-labelledby="skills-title"><div class="skills-heading"><div><div class="section-label"><span>03 /</span> Technical expertise</div><h2 class="skills-title" id="skills-title">Skills &amp; technologies<span style="color:var(--accent)">.</span></h2></div><p class="skills-subtitle">Technologies and model families grouped by function, with languages, frameworks, architectures, inference tools, and infrastructure kept separate.</p></div><div class="skills-grid"><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">01 / 15</span><span class="skill-card-mark" aria-hidden="true">📁</span></div><h3>Programming Languages</h3><ul class="skill-list"><li>Python</li><li>C++</li><li>CUDA C++ / PyCUDA</li><li>Bash / Shell</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">02 / 15</span><span class="skill-card-mark" aria-hidden="true">🤖</span></div><h3>Deep Learning Frameworks</h3><ul class="skill-list"><li>PyTorch</li><li>PyTorch Lightning</li><li>TensorFlow</li><li>Keras</li><li>PaddlePaddle</li><li>Hugging Face Transformers</li><li>Unsloth</li><li>Ultralytics</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">03 / 15</span><span class="skill-card-mark" aria-hidden="true">🧠</span></div><h3>Computer Vision Model Architectures</h3><ul class="skill-list"><li>YOLO (v1–v26)</li><li>ResNet</li><li>MobileNet (V1–V4)</li><li>Vision Transformer (ViT)</li><li>SegFormer</li><li>Mask2Former</li><li>U-Net</li><li>V-Net</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">04 / 15</span><span class="skill-card-mark" aria-hidden="true">⚡</span></div><h3>Model Optimization &amp; Inference</h3><ul class="skill-list"><li>TensorRT</li><li>TensorRT Plugins</li><li>TensorRT-LLM</li><li>Triton Inference Server</li><li>ONNX</li><li>ONNX Runtime</li><li>CV-CUDA</li><li>cuDNN</li><li>cuBLAS</li><li>NVML</li><li>Nsight Systems / Compute</li><li>trtexec</li><li>CUDA Streams / Events</li><li>Pinned / Unified Memory</li><li>FP16 / 4-bit Quantization</li><li>ONNX Graph Surgery</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">05 / 15</span><span class="skill-card-mark" aria-hidden="true">👁️</span></div><h3>Computer Vision &amp; Media</h3><ul class="skill-list"><li>OpenCV</li><li>DeepStream</li><li>GStreamer / NVDEC</li><li>FFmpeg</li><li>RTSP / ONVIF</li><li>PaddleOCR</li><li>Anomalib</li><li>SAHI</li><li>ByteTrack</li><li>Object Detection</li><li>Classification</li><li>Segmentation</li><li>Face Detection / Recognition</li><li>Face Keypoints</li><li>Re-ID / Multi-object Tracking</li><li>OCR / ANPR</li><li>Anomaly Detection</li><li>Optical Flow</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">06 / 15</span><span class="skill-card-mark" aria-hidden="true">💬</span></div><h3>NLP &amp; LLM</h3><ul class="skill-list"><li>LLMs / VLMs</li><li>vLLM</li><li>Ollama</li><li>Sentence Transformers</li><li>RAG</li><li>Attention / CNN / RNN / LSTM</li><li>Embeddings &amp; Retrieval</li><li>VLM Fine-tuning</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">07 / 15</span><span class="skill-card-mark" aria-hidden="true">✨</span></div><h3>LLM &amp; VLM Model Families</h3><ul class="skill-list"><li>Gemma</li><li>GLM</li><li>GLM-OCR</li><li>Qwen</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">08 / 15</span><span class="skill-card-mark" aria-hidden="true">📊</span></div><h3>Data Science &amp; Numerical Computing</h3><ul class="skill-list"><li>NumPy</li><li>Pandas</li><li>mAP / F1 Evaluation</li><li>Mixed-Precision Training</li><li>Distributed Data Parallel (DDP)</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">09 / 15</span><span class="skill-card-mark" aria-hidden="true">🌐</span></div><h3>Python Frameworks</h3><ul class="skill-list"><li>FastAPI</li><li>LangChain</li><li>LangGraph</li><li>AsyncIO</li><li>Multithreading</li><li>Multiprocessing</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">10 / 15</span><span class="skill-card-mark" aria-hidden="true">🗄️</span></div><h3>Databases</h3><ul class="skill-list"><li>Qdrant</li><li>FAISS</li><li>MongoDB</li><li>Redis</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">11 / 15</span><span class="skill-card-mark" aria-hidden="true">📦</span></div><h3>Messaging</h3><ul class="skill-list"><li>RabbitMQ</li><li>Kafka</li><li>Event-driven Architecture</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">12 / 15</span><span class="skill-card-mark" aria-hidden="true">🔧</span></div><h3>CI/CD &amp; Version Control</h3><ul class="skill-list"><li>Git</li><li>pytest</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">13 / 15</span><span class="skill-card-mark" aria-hidden="true">💻</span></div><h3>DevOps &amp; Tools</h3><ul class="skill-list"><li>GitHub</li><li>GitHub Actions</li><li>Docker</li><li>Docker Compose</li><li>Kubernetes</li><li>Linux</li><li>CMake</li><li>MLflow</li><li>Weights &amp; Biases</li><li>NVIDIA GPU Operator</li><li>JetPack</li></ul></article><article class="skill-card skill-card--pending"><div class="skill-card-top"><span class="skill-card-num">14 / 15</span><span class="skill-card-mark" aria-hidden="true">☁️</span></div><h3>Cloud Providers</h3><p class="skill-pending">Provider-specific experience to be added.</p></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">15 / 15</span><span class="skill-card-mark" aria-hidden="true">🖥️</span></div><h3>Hardware</h3><ul class="skill-list"><li>Jetson Orin Nano</li><li>Jetson Orin NX</li><li>Jetson AGX Orin</li><li>Jetson AGX Xavier</li><li>Jetson Nano</li><li>NVIDIA RTX GPUs</li><li>Axelera AIPU</li><li>Coral Edge TPU</li><li>Raspberry Pi</li><li>Multi-GPU Systems</li></ul></article></div></section>
+      <section class="summary container" id="credentials" aria-labelledby="credentials-title">
+        <h2 class="section-label" id="credentials-title"><span>03 /</span> Experience &amp; credentials</h2>
+        <p class="summary-copy">
+          <strong>AI/ML Engineer, WebOccult Technologies Pvt. Ltd., Ahmedabad</strong> (Nov 2023 – Present). Received <strong>The Visionary award</strong> in March 2026.<br>
+          <strong>Certifications:</strong> NVIDIA-Certified Associate: Generative AI and LLMs (NCA-GENL), 2026 · TensorFlow Developer Certificate, 2024 · AI Programming with Python Nanodegree, Udacity, 2022.<br>
+          <strong>Education:</strong> B.E. in Information Technology, Shantilal Shah Engineering College, Bhavnagar (2019 – 2023).<br>
+          <strong>Community:</strong> Ranked 10th by reputation on <a href="https://ai.stackexchange.com/users/78733/keval-pandya" target="_blank" rel="noopener noreferrer">Artificial Intelligence Stack Exchange</a> in 2024.
+        </p>
+      </section>
+
+      <section class="skills container" id="skills" aria-labelledby="skills-title"><div class="skills-heading"><div><div class="section-label"><span>04 /</span> Technical expertise</div><h2 class="skills-title" id="skills-title">Skills &amp; technologies<span style="color:var(--accent)">.</span></h2></div><p class="skills-subtitle">Technologies and model families grouped by function, with languages, frameworks, architectures, inference tools, and infrastructure kept separate.</p></div><div class="skills-grid"><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">01 / 15</span><span class="skill-card-mark" aria-hidden="true">📁</span></div><h3>Programming Languages</h3><ul class="skill-list"><li>Python</li><li>C++</li><li>CUDA C++ / PyCUDA</li><li>Bash / Shell</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">02 / 15</span><span class="skill-card-mark" aria-hidden="true">🤖</span></div><h3>Deep Learning Frameworks</h3><ul class="skill-list"><li>PyTorch</li><li>PyTorch Lightning</li><li>TensorFlow</li><li>Keras</li><li>PaddlePaddle</li><li>Hugging Face Transformers</li><li>Unsloth</li><li>Ultralytics</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">03 / 15</span><span class="skill-card-mark" aria-hidden="true">🧠</span></div><h3>Computer Vision Model Architectures</h3><ul class="skill-list"><li>YOLO (v1–v26)</li><li>ResNet</li><li>MobileNet (V1–V4)</li><li>Vision Transformer (ViT)</li><li>SegFormer</li><li>Mask2Former</li><li>U-Net</li><li>V-Net</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">04 / 15</span><span class="skill-card-mark" aria-hidden="true">⚡</span></div><h3>Model Optimization &amp; Inference</h3><ul class="skill-list"><li>TensorRT</li><li>TensorRT Plugins</li><li>TensorRT-LLM</li><li>Triton Inference Server</li><li>ONNX</li><li>ONNX Runtime</li><li>CV-CUDA</li><li>cuDNN</li><li>cuBLAS</li><li>NVML</li><li>Nsight Systems / Compute</li><li>trtexec</li><li>CUDA Streams / Events</li><li>Pinned / Unified Memory</li><li>FP16 / 4-bit Quantization</li><li>ONNX Graph Surgery</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">05 / 15</span><span class="skill-card-mark" aria-hidden="true">👁️</span></div><h3>Computer Vision &amp; Media</h3><ul class="skill-list"><li>OpenCV</li><li>DeepStream</li><li>GStreamer / NVDEC</li><li>FFmpeg</li><li>RTSP / ONVIF</li><li>PaddleOCR</li><li>Anomalib</li><li>SAHI</li><li>ByteTrack</li><li>Object Detection</li><li>Classification</li><li>Segmentation</li><li>Face Detection / Recognition</li><li>Face Keypoints</li><li>Re-ID / Multi-object Tracking</li><li>OCR / ANPR</li><li>Anomaly Detection</li><li>Optical Flow</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">06 / 15</span><span class="skill-card-mark" aria-hidden="true">💬</span></div><h3>NLP &amp; LLM</h3><ul class="skill-list"><li>LLMs / VLMs</li><li>vLLM</li><li>Ollama</li><li>Sentence Transformers</li><li>RAG</li><li>Attention / CNN / RNN / LSTM</li><li>Embeddings &amp; Retrieval</li><li>VLM Fine-tuning</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">07 / 15</span><span class="skill-card-mark" aria-hidden="true">✨</span></div><h3>LLM &amp; VLM Model Families</h3><ul class="skill-list"><li>Gemma</li><li>GLM</li><li>GLM-OCR</li><li>Qwen</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">08 / 15</span><span class="skill-card-mark" aria-hidden="true">📊</span></div><h3>Data Science &amp; Numerical Computing</h3><ul class="skill-list"><li>NumPy</li><li>Pandas</li><li>mAP / F1 Evaluation</li><li>Mixed-Precision Training</li><li>Distributed Data Parallel (DDP)</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">09 / 15</span><span class="skill-card-mark" aria-hidden="true">🌐</span></div><h3>Python Frameworks</h3><ul class="skill-list"><li>FastAPI</li><li>LangChain</li><li>LangGraph</li><li>AsyncIO</li><li>Multithreading</li><li>Multiprocessing</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">10 / 15</span><span class="skill-card-mark" aria-hidden="true">🗄️</span></div><h3>Databases</h3><ul class="skill-list"><li>Qdrant</li><li>FAISS</li><li>MongoDB</li><li>Redis</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">11 / 15</span><span class="skill-card-mark" aria-hidden="true">📦</span></div><h3>Messaging</h3><ul class="skill-list"><li>RabbitMQ</li><li>Kafka</li><li>Event-driven Architecture</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">12 / 15</span><span class="skill-card-mark" aria-hidden="true">🔧</span></div><h3>CI/CD &amp; Version Control</h3><ul class="skill-list"><li>Git</li><li>pytest</li></ul></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">13 / 15</span><span class="skill-card-mark" aria-hidden="true">💻</span></div><h3>DevOps &amp; Tools</h3><ul class="skill-list"><li>GitHub</li><li>GitHub Actions</li><li>Docker</li><li>Docker Compose</li><li>Kubernetes</li><li>Linux</li><li>CMake</li><li>MLflow</li><li>Weights &amp; Biases</li><li>NVIDIA GPU Operator</li><li>JetPack</li></ul></article><article class="skill-card skill-card--pending"><div class="skill-card-top"><span class="skill-card-num">14 / 15</span><span class="skill-card-mark" aria-hidden="true">☁️</span></div><h3>Cloud Providers</h3><p class="skill-pending">Provider-specific experience to be added.</p></article><article class="skill-card"><div class="skill-card-top"><span class="skill-card-num">15 / 15</span><span class="skill-card-mark" aria-hidden="true">🖥️</span></div><h3>Hardware</h3><ul class="skill-list"><li>Jetson Orin Nano</li><li>Jetson Orin NX</li><li>Jetson AGX Orin</li><li>Jetson AGX Xavier</li><li>Jetson Nano</li><li>NVIDIA RTX GPUs</li><li>Axelera AIPU</li><li>Coral Edge TPU</li><li>Raspberry Pi</li><li>Multi-GPU Systems</li></ul></article></div></section>
       <section class="contact-section container" id="contact" aria-labelledby="contact-title">
         <div class="contact-copy"><span class="contact-eyebrow">LET'S BUILD SOMETHING USEFUL</span><h2 id="contact-title">Great AI is built<br>to <em>run in the real world.</em></h2><p>Interested in computer vision, accelerated inference, or production AI engineering? Let's connect.</p></div>
         <a href="mailto:kevalpandya760@gmail.com" class="contact-button">Get in touch <span aria-hidden="true">↗</span></a>
@@ -554,6 +636,7 @@
 
     <footer class="footer container">
       <span>© 2026 Keval Pandya</span>
+      <a href="https://www.linkedin.com/in/keval-pandya-ai-ml-engineer" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
       <a href="https://github.com/Keval-P" target="_blank" rel="noopener noreferrer">Built to keep evolving ↗</a>
     </footer>
   </div>
@@ -576,6 +659,58 @@
         sync();
       });
       sync();
+    })();
+  </script>
+  <script>
+    (function () {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var bar = document.createElement('div');
+      bar.className = 'scroll-progress';
+      bar.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(bar);
+      function progress() {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+      }
+      window.addEventListener('scroll', progress, { passive: true });
+      progress();
+      if (reduce || !('IntersectionObserver' in window)) return;
+      document.documentElement.classList.add('js-anim');
+
+      // reveal sections and cards as they enter the viewport, cards in a short stagger
+      var groups = ['.impact-item', '.summary', '.work-heading', '.work-card', '.skills-heading', '.skill-card', '.contact-section'];
+      var items = document.querySelectorAll(groups.join(','));
+      var seen = new Map();
+      items.forEach(function (el) {
+        var n = seen.get(el.parentNode) || 0;
+        seen.set(el.parentNode, n + 1);
+        el.classList.add('reveal');
+        el.style.setProperty('--d', Math.min(n, 5) * 70 + 'ms');
+      });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+          if (e.target.classList.contains('impact-item')) countUp(e.target);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      items.forEach(function (el) { io.observe(el); });
+
+      // count the headline numbers up from zero
+      function countUp(item) {
+        var value = item.querySelector('.impact-value');
+        if (!value) return;
+        Array.prototype.forEach.call(value.childNodes, function (node) {
+          if (node.nodeType !== 3 || !/^\s*\d+\s*$/.test(node.nodeValue)) return;
+          var target = parseInt(node.nodeValue, 10), start = performance.now(), dur = 1100;
+          (function tick(now) {
+            var t = Math.min((now - start) / dur, 1);
+            node.nodeValue = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+            if (t < 1) requestAnimationFrame(tick);
+          })(start);
+        });
+      }
     })();
   </script>
 </body>
