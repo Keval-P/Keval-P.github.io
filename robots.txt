@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://keval-p.github.io/sitemap.xml
